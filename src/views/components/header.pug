@@ -1,0 +1,39 @@
+header.c-header
+  div.c-header__topbar
+    div.l-container
+      div.c-header__topbar-content
+        p Điện thoại #[+link("tel:0967.258.116") #[span 096.7258.116]] - Hotline #[+link("tel: 0972168805") #[span 097.2168.805]]
+        +link()(class="c-header__link") Tra cứu đơn hàng
+        +link()(class="c-header__link") Chăm sóc khách hàng
+  div.l-container
+    div.c-header__content
+      +link()(class="c-header__logo", title="Logo")
+        +img("../../assets/images/logo.png", "Logo")
+      div.o-search
+        input.o-search__input(type="text", name="q", placeholder="Tìm kiếm sản phẩm...")
+        button.o-search__button
+          i.o-icon.o-icon--search-alpha
+      div.c-header__user
+        +link()(class="c-header__action", title="Đăng nhập & Đăng ký tài khoản")
+          span.c-header__icon-wrapper
+            i.o-icon.o-icon--user
+          span
+            | Đăng nhập & Đăng ký
+            br
+            | tài khoản
+        +link()(class="c-header__action", title="Danh sách của tôi")
+          span.c-header__icon-wrapper
+            i.o-icon.o-icon--list
+          span
+            | Danh sách
+            br
+            | của tôi
+        +link()(class="c-header__action", title="Giỏ hàng")
+          span.c-header__icon-wrapper
+            i.o-icon.o-icon--cart-beta
+          span.c-header__quantity (0)
+
+
+
+
+

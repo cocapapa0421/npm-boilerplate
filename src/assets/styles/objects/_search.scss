@@ -1,0 +1,27 @@
+.o-search {
+  width: 44.5rem;
+  @include relative;
+
+  &__input {
+    border-radius: 2.5rem;
+    border: 2px solid $color-grey;
+    display: block;
+    padding: 1.4rem 7.5rem 1.4rem 1.5rem;
+    width: 100%;
+
+    @include inputPlaceholder {
+      color: $color-alpha;
+    }
+  }
+
+  &__button {
+    top: 0.4rem;
+    right: 0.4rem;
+    border-radius: 2rem;
+    background-color: $color-secondary;
+    text-align: center;
+    @include absolute;
+    @include size(6.8rem, 4.2rem);
+    @include flex(center, center);
+  }
+}

@@ -1,0 +1,187 @@
+.home-upper-section {
+  margin-bottom: 1.5rem;
+  @include flex;
+
+  &__mega-menu {
+    flex-basis: 21.8rem;
+  }
+
+  &__banner {
+    flex-basis: 29.2rem;
+
+    &-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__products {
+    flex: 1;
+  }
+}
+
+.home-primary-banner {
+  column-gap: 6px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  margin-bottom: 2.5rem;
+}
+
+.home-promotion {
+  margin-bottom: 2.5rem;
+  @include flex(space-between);
+
+  &__omega {
+    flex-basis: 95rem;
+  }
+
+  &__alpha {
+    flex-basis: 24rem;
+  }
+
+  &__heading {
+    height: 3.8rem;
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
+    background-color: $color-white;
+    border: 1px solid $color-grey-dark;
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    align-items: center;
+    @include flex;
+  }
+}
+
+.promotion-omega {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+    column-gap: 1rem;
+  }
+
+  &__item {
+    border: 1px solid $color-grey-dark;
+  }
+
+  &__product {
+    display: block;
+    height: 100%;
+    background-color: $color-white;
+    color: $color-text;
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 1.3rem;
+  }
+
+  &__image-wrapper {
+    @include responsive-ratio(1, 1, ".promotion-omega__image");
+  }
+
+  &__date {
+    height: 4rem;
+    background-color: $color-secondary;
+    color: $color-white;
+    @include flex(null, center);
+    @include padding(null, 1rem, null, 1rem);
+  }
+
+  &__info {
+    @include padding(1rem, 1rem, 1rem, 1rem);
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  &__price {
+    color: $color-tertiary-light-alpha;
+    font-size: 1.4rem;
+  }
+}
+
+.promotion-alpha {
+  &__body {
+    background-color: $color-white;
+    border: 1px solid $color-grey-dark;
+    border-top: 0;
+    @include padding(6px, 5px, 6px, 5px);
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $color-grey;
+  }
+
+  &__product {
+    color: $color-text;
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 1.3rem;
+    @include flex(space-between);
+  }
+
+  &__image-wrapper {
+    border: 1px solid $color-grey;
+    flex-basis: 10rem;
+    @include padding(3px, 3px, 3px, 3px);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    flex-basis: calc(100% - 11rem);
+  }
+
+  &__title {
+    margin-bottom: 5px;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  &__price {
+    color: $color-tertiary-light-alpha;
+    font-size: 1.4rem;
+  }
+}
+
+.home-category {
+  margin-bottom: 2.5rem;
+  @include flex(space-between);
+
+  &__info {
+    background-color: $color-white;
+    border: 1px solid $color-grey-dark;
+    padding-top: 4px;
+    flex-basis: 23rem;
+  }
+
+  &__banner {
+    flex-basis: 33.6rem;
+  }
+
+  &__products {
+    flex: 1;
+  }
+}

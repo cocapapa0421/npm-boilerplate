@@ -1,0 +1,10 @@
+ul.c-mega-menu__list
+  - const megaMenuItems = [{"title": "Khuyến mãi HOT", "icon": "hot"}, {"title": "Tinh dầu", "icon": "essential"}, {"title": "Đèn xông tinh dầu", "icon": "burner"}, {"title": "Đá massage", "icon": "stones"}, {"title": "Bột nguyên chất", "icon": "powder"}, {"title": "Dầu nền, dầu dẫn", "icon": "oil"}, {"title": "Thiết bị massage", "icon": "equipment"}, {"title": "Nguyên liệu phụ kiện", "icon": "material"}, {"title": "Sức khỏe sắc đẹp", "icon": "health"}, {"title": "Dầu massage", "icon": "massage"}, {"title": "Nến đốt tinh dầu", "icon": "candle"}, {"title": "Thực phẩm chức năng", "icon": "capsule"}, {"title": "Sản phẩm theo yêu cầu", "icon": "product"}];
+
+  each item in megaMenuItems
+    li.c-mega-menu__item
+      +link()(class="c-mega-menu__link", title=item.title)
+        span.c-mega-menu__icon-wrap
+          i(class="o-icon o-icon--" + item.icon)
+        span.c-mega-menu__text=item.title
+

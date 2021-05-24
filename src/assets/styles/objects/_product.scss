@@ -1,0 +1,59 @@
+.l-product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19.5rem, 1fr));
+  border-right: 1px solid $color-grey-dark;
+  border-bottom: 1px solid $color-grey-dark;
+}
+
+.o-product {
+  height: 100%;
+  padding: 6px 5px 10px 5px;
+  background-color: $color-white;
+  color: $color-text;
+  font-family: "Roboto-Medium", "Roboto", sans-serif;
+  font-size: 1.3rem;
+  box-shadow: inset 1px 1px 1px $color-grey-dark;
+  @include flex($direction: column);
+
+  &__info {
+    padding: {
+      left: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &__image-wrapper {
+    height: 16.5rem;
+    margin-bottom: 8px;
+  }
+
+  &__image {
+    display: block;
+    object-fit: contain;
+    @include size(100%);
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  &__price {
+    align-items: center;
+    justify-content: space-between;
+    @include flex;
+  }
+
+  &__price-regular {
+    text-decoration: line-through;
+  }
+
+  &__price-sale {
+    color: $color-tertiary-light-beta;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,49 @@
+.c-mega-menu {
+  background-color: $color-primary;
+
+  &__list {
+    height: 100%;
+    padding: {
+      bottom: 3px;
+      top: 4px;
+    }
+  }
+
+  &__item {
+    @include relative;
+  }
+
+  &__item:not(:first-child) > &__link {
+    border-top: 1px dotted $color-primary-light;
+  }
+
+  &__link {
+    align-items: center;
+    color: $color-white;
+    padding-right: 5px;
+    height: 3.8rem;
+    font-size: 1.3rem;
+    @include flex(null, center);
+
+    &:before {
+      top: 0;
+      right: -1rem;
+      border-style: solid;
+      border-color: transparent transparent transparent $color-tertiary;
+      border-width: 1.8rem 0 1.8rem 1rem;
+      @include pseudo($display: none, $width: 0, $height: 0);
+    }
+
+    &:hover {
+      background-color: $color-tertiary;
+    }
+    &:hover:before {
+      display: block;
+    }
+  }
+
+  &__icon-wrap {
+    width: 4rem;
+    @include flex(center, center);
+  }
+}

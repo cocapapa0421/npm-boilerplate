@@ -1,0 +1,76 @@
+.o-icon {
+  display: inline-block;
+  line-height: 1;
+
+  &--hot {
+    @include sprite($hot);
+  }
+
+  &--essential {
+    @include sprite($essential);
+  }
+
+  &--burner {
+    @include sprite($burner);
+  }
+
+  &--stones {
+    @include sprite($stones);
+  }
+
+  &--powder {
+    @include sprite($powder);
+  }
+
+  &--oil {
+    @include sprite($oil);
+  }
+  &--equipment {
+    @include sprite($equipment);
+  }
+
+  &--material {
+    @include sprite($material);
+  }
+
+  &--health {
+    @include sprite($health);
+  }
+
+  &--massage {
+    @include sprite($massage);
+  }
+
+  &--candle {
+    @include sprite($candle);
+  }
+
+  &--capsule {
+    @include sprite($capsule);
+  }
+
+  &--product {
+    @include sprite($product);
+  }
+
+  &--user {
+    @include sprite($user);
+  }
+
+  &--list {
+    @include sprite($list);
+  }
+
+  &--cart-beta {
+    @include sprite($cart-beta);
+  }
+
+  &--calendar {
+    @include sprite($calendar);
+  }
+
+  &--search-alpha {
+    display: inline-block;
+    @include sprite($search-alpha);
+  }
+}

@@ -1,0 +1,26 @@
+.o-heading-one {
+  left: -7px;
+  padding: 1rem 1rem 1rem 2.5rem;
+  background-image: linear-gradient(
+    to bottom,
+    $color-secondary,
+    $color-secondary-dark-1
+  );
+  clip-path: polygon(0 0, 95% 0, 99% 50%, 95% 100%, 0 100%, 0 calc(100% + 7px));
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 1.7rem;
+  font-weight: normal;
+  @include relative;
+
+  &:after {
+    left: 0;
+    bottom: -7px;
+    border-top: 7px solid $color-dark-1;
+    border-left: 7px solid transparent;
+    @include pseudo($width: 0, $height: 0);
+  }
+
+  &__text {
+    color: $color-white;
+  }
+}

@@ -1,0 +1,304 @@
+@mixin pushAuto {
+  display: block;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin pseudo(
+  $display: block,
+  $pos: absolute,
+  $content: '',
+  $width: 100%,
+  $height: 100%
+) {
+  @include size($width, $height);
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin bgImage($url, $repeat: no-repeat, $position: center, $size: initial) {
+  background: {
+    image: url($url);
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+  }
+}
+
+@mixin flex(
+  $content: null,
+  $items: null,
+  $direction: null,
+  $wrap: null,
+  $display: flex,
+  $al-content: null
+) {
+  justify-content: $content;
+  align-items: $items;
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-content: $al-content;
+}
+
+@mixin position(
+  $position,
+  $top: null,
+  $left: null,
+  $right: null,
+  $bottom: null
+) {
+  bottom: $bottom;
+  left: $left;
+  position: $position;
+  right: $right;
+  top: $top;
+}
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+@mixin relative($args...) {
+  @include position(relative, $args...);
+}
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+@mixin centerAbsolute($direction: both) {
+  position: absolute;
+  @if $direction == both {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $direction == left {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == top {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top and $right and $bottom and $left {
+    padding: $top $right $bottom $left;
+  } @else {
+    padding: {
+      top: $top;
+      right: $right;
+      bottom: $bottom;
+      left: $left;
+    }
+  }
+}
+
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top and $right and $bottom and $left {
+    margin: $top $right $bottom $left;
+  } @else {
+    margin: {
+      top: $top;
+      right: $right;
+      bottom: $bottom;
+      left: $left;
+    }
+  }
+}
+
+@mixin cssTriangle($direction: down, $size: 5px, $color: #555, $pseudo: false) {
+  @if ($pseudo == false) {
+    @include size(0, 0);
+  }
+  @if ($direction == left) {
+    border: {
+      bottom: $size solid transparent;
+      right: $size solid $color;
+      top: $size solid transparent;
+    }
+  } @else if ($direction == right) {
+    border: {
+      bottom: $size solid transparent;
+      left: $size solid $color;
+      top: $size solid transparent;
+    }
+  } @else if ($direction == up) {
+    border: {
+      bottom: $size solid $color;
+      left: $size solid transparent;
+      right: $size solid transparent;
+    }
+  } @else {
+    border: {
+      left: $size solid transparent;
+      right: $size solid transparent;
+      top: $size solid $color;
+    }
+  }
+}
+
+@mixin boxShadow(
+  $x: 0,
+  $y: 0,
+  $blur: 0,
+  $spread: 0,
+  $color: black,
+  $inset: false
+) {
+  @if inset {
+    box-shadow: inset $x $y $blur $spread $color;
+  } @else {
+    box-shadow: $x $y $blur $spread $color;
+  }
+}
+
+@mixin appearance($val: none) {
+  -webkit-appearance: $val;
+  -moz-appearance: $val;
+  appearance: $val;
+}
+
+@mixin responsive-ratio(
+  $width,
+  $height,
+  $child,
+  $object-fit: cover,
+  $pseudo: false
+) {
+  $padding: unquote(($height / $width) * 100 + '%');
+  @include relative;
+
+  @if $pseudo {
+    &:before {
+      content: '';
+      display: block;
+      padding-top: $padding;
+      width: 100%;
+    }
+  } @else {
+    display: block;
+    padding-top: $padding;
+  }
+
+  > #{$child} {
+    display: block;
+    object-fit: $object-fit;
+    @include size(100%);
+    @include absolute($top: 0, $left: 0);
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+
+@mixin inputPlaceholder() {
+  &::placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+@mixin fontFace($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($path + '.eot');
+    src: url($path + '.eot?#iefix') format('embedded-opentype'),
+      url($path + '.woff') format('woff'),
+      url($path + '.ttf') format('truetype'),
+      url($path + '.svg##{$font-name}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin fontSize(
+  $font-size,
+  $color: false,
+  $weight: false,
+  $lh: false,
+  $spacing: false
+) {
+  font-size: $font-size;
+  @if $color {
+    color: $color;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $weight;
+  }
+  @if $spacing {
+    letter-spacing: $weight;
+  }
+}
+
+@mixin truncate($boundary: null, $line: null) {
+  max-height: $boundary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @if $line {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    display: -webkit-box;
+  }
+}
+
+// MEDIA QUERIES
+@mixin minWidth($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin maxWidth($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin minWidthAndMaxWidth($min-breakpoint, $max-breakpoint) {
+  @media only screen and (min-width: $min-breakpoint) and (max-width: $max-breakpoint) {
+    @content;
+  }
+}

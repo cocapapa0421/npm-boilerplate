@@ -1,0 +1,16 @@
+.l-container {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  max-width: $container;
+
+  @include maxWidth($bp-large) {
+    max-width: none;
+    padding: {
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+    width: 100%;
+  }
+}
